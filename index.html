@@ -1,0 +1,1746 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DentCare — Dental Clinic Appointment Planner | Book Online</title>
+  <meta name="description" content="Book your dental appointment online at DentCare. No phone calls, no waiting. Professional teeth cleaning, fillings, whitening, and more in New York." />
+  <meta name="keywords" content="dental clinic, dentist, book appointment, teeth cleaning, New York dentist, online booking, dental care" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://dentcare.com/" />
+  <link rel="robots" href="/robots.txt" />
+  <meta property="og:title" content="DentCare — Your smile is our priority" />
+  <meta property="og:description" content="Book your dental appointment in seconds. Professional care for the whole family." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://dentcare.com/" />
+  <meta property="og:locale" content="en_US" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "DentCare",
+    "description": "Professional dental clinic offering online appointment booking, teeth cleaning, fillings, whitening, and more.",
+    "url": "https://dentcare.com/",
+    "telephone": "(555) 123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Wellness Street",
+      "addressLocality": "New York",
+      "addressRegion": "NY",
+      "postalCode": "10001",
+      "addressCountry": "US"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "08:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "14:00" }
+    ],
+    "priceRange": "$$",
+    "image": "https://dentcare.com/og-image.jpg"
+  }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --primary:#2563eb;
+      --primary-dark:#1d4ed8;
+      --primary-light:#3b82f6;
+      --primary-bg:#eff6ff;
+      --accent:#0ea5e9;
+      --text:#1e293b;
+      --text-light:#64748b;
+      --text-muted:#94a3b8;
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --border:#e2e8f0;
+      --border-light:#f1f5f9;
+      --success:#10b981;
+      --warning:#f59e0b;
+      --danger:#ef4444;
+      --shadow-sm:0 1px 3px rgba(0,0,0,.08);
+      --shadow:0 4px 20px rgba(0,0,0,.07);
+      --shadow-lg:0 12px 40px rgba(0,0,0,.1);
+      --radius:12px;
+      --radius-sm:8px;
+      --radius-lg:16px;
+      --transition:0.3s cubic-bezier(.4,0,.2,1)
+    }
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'DM Sans',-apple-system,sans-serif;
+      color:var(--text);
+      background:var(--bg);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased
+    }
+    h1,h2,h3,h4,h5,h6,.logo,.why-number{font-family:'Playfair Display',serif}
+    a{color:inherit;text-decoration:none}
+    ul{list-style:none}
+    img{max-width:100%}
+    input,select,textarea,button{font-family:inherit;font-size:inherit;outline:none}
+    .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+    .navbar{
+      position:fixed;top:0;left:0;right:0;z-index:1000;
+      background:rgba(255,255,255,.92);
+      backdrop-filter:blur(16px);
+      border-bottom:1px solid var(--border-light);
+      transition:var(--transition)
+    }
+    .nav-container{
+      display:flex;align-items:center;justify-content:space-between;
+      height:68px
+    }
+    .logo{
+      display:flex;align-items:center;gap:8px;
+      font-size:1.4rem;font-weight:800;color:var(--text)
+    }
+    .logo-icon{flex-shrink:0}
+    .nav-links{display:flex;align-items:center;gap:4px}
+    .nav-links li a{
+      padding:8px 16px;border-radius:var(--radius-sm);
+      font-size:.9rem;font-weight:500;color:var(--text-light);
+      transition:var(--transition)
+    }
+    .nav-links li a:hover,
+    .nav-links li a.active{color:var(--primary);background:var(--primary-bg)}
+    .btn-login{
+      background:var(--primary)!important;color:#fff!important;
+      border-radius:var(--radius-sm)!important
+    }
+    .btn-login:hover{background:var(--primary-dark)!important}
+    .hamburger{
+      display:none;flex-direction:column;gap:5px;
+      background:none;border:none;cursor:pointer;padding:4px
+    }
+    .hamburger span{
+      display:block;width:24px;height:2px;background:var(--text);
+      border-radius:2px;transition:var(--transition)
+    }
+
+    .section{display:none;padding-top:68px}
+    .section.active{display:block}
+    .page-header{text-align:center;padding:48px 0 32px}
+    .page-header h1{font-size:2.2rem;font-weight:800;margin-bottom:8px}
+    .page-header p{color:var(--text-light);font-size:1.05rem;max-width:500px;margin:0 auto}
+
+    .hero{
+      padding:60px 0 80px;
+      background:linear-gradient(135deg,var(--primary-bg) 0%,#f0f9ff 100%);
+      position:relative;overflow:hidden
+    }
+    .hero::before{
+      content:'';position:absolute;top:-50%;right:-20%;
+      width:600px;height:600px;border-radius:50%;
+      background:radial-gradient(circle,rgba(37,99,235,.06) 0%,transparent 70%);
+      pointer-events:none
+    }
+    .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .hero-text .badge{
+      display:inline-block;padding:6px 16px;
+      background:rgba(37,99,235,.1);color:var(--primary);
+      border-radius:20px;font-size:.85rem;font-weight:600;margin-bottom:16px
+    }
+    .hero-text h1{font-size:3rem;font-weight:800;line-height:1.15;margin-bottom:16px}
+    .hero-text h1 .highlight{
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text
+    }
+    .hero-text p{font-size:1.1rem;color:var(--text-light);margin-bottom:28px;max-width:480px}
+    .hero-btns{display:flex;gap:12px;margin-bottom:40px}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:12px 28px;border-radius:var(--radius-sm);
+      font-weight:600;font-size:.95rem;
+      border:none;cursor:pointer;transition:var(--transition);
+      text-align:center
+    }
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-dark);transform:translateY(-2px);box-shadow:0 8px 25px rgba(37,99,235,.35)}
+    .btn-outline{background:transparent;color:var(--primary);border:2px solid var(--primary)}
+    .btn-outline:hover{background:var(--primary);color:#fff;transform:translateY(-2px)}
+    .btn-lg{padding:16px 40px;font-size:1.05rem}
+    .btn-full{width:100%;justify-content:center;padding:14px}
+    .hero-stats{display:flex;gap:36px}
+    .hero-stats div{display:flex;flex-direction:column}
+    .hero-stats strong{font-size:1.5rem;font-weight:800;color:var(--text)}
+    .hero-stats span{font-size:.85rem;color:var(--text-muted)}
+    .hero-image{display:flex;justify-content:center}
+    .hero-img-placeholder svg{width:100%;max-width:380px;height:auto}
+
+    .section-header{text-align:center;margin-bottom:48px}
+    .section-header h2{font-size:2rem;font-weight:800;margin-bottom:8px}
+    .section-header p{color:var(--text-light);max-width:500px;margin:0 auto}
+
+    .services-section{padding:80px 0}
+    .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .service-card{
+      background:var(--card);border:1px solid var(--border-light);
+      border-radius:var(--radius);padding:32px 28px;
+      transition:var(--transition)
+    }
+    .service-card:hover{
+      transform:translateY(-4px);box-shadow:var(--shadow);
+      border-color:var(--primary-bg)
+    }
+    .service-icon{
+      width:56px;height:56px;border-radius:12px;
+      background:var(--primary-bg);display:flex;
+      align-items:center;justify-content:center;margin-bottom:16px
+    }
+    .service-card h3{font-size:1.15rem;font-weight:700;margin-bottom:8px}
+    .service-card p{color:var(--text-light);font-size:.9rem;line-height:1.65}
+
+    .why-section{padding:80px 0;background:var(--card)}
+    .why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+    .why-item{padding:28px;border-radius:var(--radius);transition:var(--transition)}
+    .why-item:hover{background:var(--primary-bg)}
+    .why-number{
+      font-size:2.5rem;font-weight:800;
+      background:linear-gradient(135deg,var(--primary),var(--accent));
+      -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+      background-clip:text;margin-bottom:8px
+    }
+    .why-item h3{font-size:1.1rem;font-weight:700;margin-bottom:6px}
+    .why-item p{color:var(--text-light);font-size:.9rem}
+
+    .testimonials-section{padding:80px 0}
+    .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+    .testimonial-card{
+      background:var(--card);border:1px solid var(--border-light);
+      border-radius:var(--radius);padding:28px;
+      transition:var(--transition)
+    }
+    .testimonial-card:hover{box-shadow:var(--shadow)}
+    .stars{color:#f59e0b;font-size:1.1rem;margin-bottom:12px}
+    .testimonial-card p{color:var(--text-light);font-size:.9rem;line-height:1.7;margin-bottom:16px;font-style:italic}
+    .testimonial-author{display:flex;align-items:center;gap:12px}
+    .author-avatar{
+      width:40px;height:40px;border-radius:50%;
+      background:var(--primary-bg);color:var(--primary);
+      display:flex;align-items:center;justify-content:center;
+      font-weight:700;font-size:.85rem;flex-shrink:0
+    }
+    .testimonial-author strong{display:block;font-size:.9rem}
+    .testimonial-author span{font-size:.8rem;color:var(--text-muted)}
+
+    .cta-section{padding:0 0 80px}
+    .cta-card{
+      background:linear-gradient(135deg,var(--primary),var(--primary-dark));
+      border-radius:var(--radius-lg);padding:64px;text-align:center;color:#fff
+    }
+    .cta-card h2{font-size:2rem;font-weight:800;margin-bottom:12px}
+    .cta-card p{font-size:1.05rem;opacity:.9;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto}
+    .cta-card .btn-primary{background:#fff;color:var(--primary)}
+    .cta-card .btn-primary:hover{background:var(--primary-bg);color:var(--primary-dark)}
+
+    .booking-layout{display:grid;grid-template-columns:1fr 360px;gap:40px;padding-bottom:80px;align-items:start}
+    .booking-form{background:var(--card);border:1px solid var(--border-light);border-radius:var(--radius);padding:32px}
+    .form-group{margin-bottom:20px}
+    .form-group label{display:block;font-weight:600;font-size:.9rem;margin-bottom:6px;color:var(--text)}
+    .form-group input,.form-group select,.form-group textarea{
+      width:100%;padding:12px 14px;border:1.5px solid var(--border);
+      border-radius:var(--radius-sm);background:var(--bg);
+      color:var(--text);transition:var(--transition)
+    }
+    .form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--primary);box-shadow:0 0 0 3px rgba(37,99,235,.1)}
+    .form-group textarea{resize:vertical;min-height:80px}
+
+    .calendar-widget{
+      background:var(--card);border:1.5px solid var(--border);
+      border-radius:var(--radius-sm);padding:16px;margin-top:8px;
+      display:none
+    }
+    .calendar-widget.open{display:block}
+    .calendar-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px}
+    .calendar-header button{
+      background:none;border:none;cursor:pointer;
+      font-size:1.4rem;color:var(--text-light);padding:4px 10px;
+      border-radius:6px;transition:var(--transition)
+    }
+    .calendar-header button:hover{background:var(--primary-bg);color:var(--primary)}
+    .calendar-header span{font-weight:600;font-size:.95rem}
+    .calendar-weekdays{display:grid;grid-template-columns:repeat(7,1fr);text-align:center;font-size:.8rem;color:var(--text-muted);font-weight:600;margin-bottom:4px}
+    .calendar-days{display:grid;grid-template-columns:repeat(7,1fr);gap:2px}
+    .calendar-days span{
+      text-align:center;padding:8px 0;font-size:.85rem;border-radius:6px;
+      cursor:pointer;transition:var(--transition)
+    }
+    .calendar-days span.other-month{color:var(--text-muted);opacity:.4}
+    .calendar-days span.today{font-weight:700;color:var(--primary)}
+    .calendar-days span.selected{background:var(--primary);color:#fff;font-weight:600}
+    .calendar-days span:not(.other-month):hover{background:var(--primary-bg)}
+    .calendar-days span.disabled{color:var(--text-muted);cursor:not-allowed;opacity:.4;pointer-events:none}
+
+    .time-slots{display:flex;flex-wrap:wrap;gap:8px}
+    .time-slots .hint{width:100%;color:var(--text-muted);font-size:.9rem;padding:8px 0}
+    .slot-btn{
+      padding:8px 16px;border:1.5px solid var(--border);
+      border-radius:var(--radius-sm);background:var(--card);
+      cursor:pointer;font-size:.85rem;font-weight:500;
+      transition:var(--transition);color:var(--text)
+    }
+    .slot-btn:hover{border-color:var(--primary);color:var(--primary)}
+    .slot-btn.selected{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .slot-btn.blocked{opacity:.4;cursor:not-allowed;text-decoration:line-through}
+
+    .summary-card{
+      background:var(--card);border:1px solid var(--border-light);
+      border-radius:var(--radius);padding:28px;position:sticky;top:90px
+    }
+    .summary-card h3{font-size:1.1rem;font-weight:700;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--border-light)}
+    .summary-empty p{color:var(--text-muted);font-size:.9rem}
+    .summary-row{display:flex;justify-content:space-between;padding:10px 0;font-size:.9rem;border-bottom:1px solid var(--border-light)}
+    .summary-row span:last-child{font-weight:600;text-align:right}
+    .summary-total{border-bottom:none;font-size:1.05rem;color:var(--primary)}
+    .summary-total span:last-child{font-size:1.2rem;font-weight:800}
+
+    .appt-tabs,.dashboard-tabs,.modal-tabs{display:flex;gap:4px;margin-bottom:24px;background:var(--border-light);padding:4px;border-radius:var(--radius-sm);width:fit-content}
+    .tab-btn,.mtab-btn{
+      padding:8px 20px;border:none;background:transparent;
+      border-radius:6px;cursor:pointer;font-size:.9rem;font-weight:500;
+      color:var(--text-light);transition:var(--transition)
+    }
+    .tab-btn.active,.mtab-btn.active{background:var(--card);color:var(--text);box-shadow:var(--shadow-sm)}
+    .tab-btn:hover,.mtab-btn:hover{color:var(--primary)}
+    .appointments-list{padding-bottom:60px}
+    .empty-state{text-align:center;padding:60px 20px}
+    .empty-state svg{margin-bottom:16px}
+    .empty-state h3{font-size:1.2rem;font-weight:700;margin-bottom:6px}
+    .empty-state p{color:var(--text-muted);margin-bottom:20px}
+    .appt-card{
+      background:var(--card);border:1px solid var(--border-light);
+      border-radius:var(--radius);padding:20px 24px;margin-bottom:12px;
+      display:flex;align-items:center;justify-content:space-between;
+      transition:var(--transition)
+    }
+    .appt-card:hover{box-shadow:var(--shadow-sm)}
+    .appt-card .appt-info h4{font-weight:700;font-size:1rem}
+    .appt-card .appt-info p{color:var(--text-light);font-size:.85rem;margin-top:2px}
+    .appt-card .appt-status{
+      padding:4px 14px;border-radius:20px;font-size:.8rem;font-weight:600
+    }
+    .appt-status.confirmed{background:#ecfdf5;color:var(--success)}
+    .appt-status.completed{background:var(--primary-bg);color:var(--primary)}
+    .appt-status.cancelled{background:#fef2f2;color:var(--danger)}
+
+    .dashboard-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px}
+    .stat-card{
+      background:var(--card);border:1px solid var(--border-light);
+      border-radius:var(--radius);padding:20px;text-align:center
+    }
+    .stat-number{display:block;font-size:1.8rem;font-weight:800;color:var(--primary)}
+    .stat-label{font-size:.85rem;color:var(--text-muted)}
+    .dash-panel{display:none;padding-bottom:60px}
+    .dash-panel.active{display:block}
+    .slots-control h3{margin-bottom:16px}
+    .slots-grid{display:flex;flex-wrap:wrap;gap:8px}
+    .patients-list .patient-card{
+      background:var(--card);border:1px solid var(--border-light);
+      border-radius:var(--radius);padding:16px 20px;margin-bottom:8px;
+      display:flex;align-items:center;justify-content:space-between
+    }
+
+    .contact-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding-bottom:80px;align-items:start}
+    .contact-info{display:grid;gap:16px}
+    .contact-card{
+      display:flex;align-items:center;gap:16px;
+      background:var(--card);border:1px solid var(--border-light);
+      border-radius:var(--radius);padding:20px;
+      transition:var(--transition)
+    }
+    .contact-card:hover{box-shadow:var(--shadow-sm)}
+    .contact-icon{
+      width:48px;height:48px;border-radius:10px;
+      background:var(--primary-bg);display:flex;
+      align-items:center;justify-content:center;flex-shrink:0
+    }
+    .contact-card h3{font-size:.95rem;font-weight:700;margin-bottom:2px}
+    .contact-card p{color:var(--text-light);font-size:.85rem;line-height:1.5}
+    .contact-form{
+      background:var(--card);border:1px solid var(--border-light);
+      border-radius:var(--radius);padding:32px
+    }
+    .contact-form h3{font-size:1.2rem;font-weight:700;margin-bottom:20px}
+    .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+
+    .footer{background:var(--text);color:rgba(255,255,255,.8);padding:48px 0 0}
+    .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1.5fr;gap:40px;padding-bottom:32px}
+    .footer .logo{color:#fff;font-size:1.2rem;margin-bottom:12px}
+    .footer-tagline{font-size:.9rem;opacity:.7;max-width:260px}
+    .footer h4{color:#fff;font-size:.95rem;font-weight:700;margin-bottom:12px}
+    .footer ul li{font-size:.85rem;padding:4px 0;opacity:.7;transition:var(--transition)}
+    .footer ul li a:hover{opacity:1;color:#fff}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;text-align:center;font-size:.85rem;opacity:.5}
+
+    .modal-overlay{
+      position:fixed;inset:0;z-index:2000;
+      background:rgba(15,23,42,.6);
+      backdrop-filter:blur(4px);
+      display:none;align-items:center;justify-content:center;
+      padding:20px
+    }
+    .modal-overlay.open{display:flex}
+    .modal{
+      background:var(--card);border-radius:var(--radius-lg);
+      padding:36px 32px;max-width:440px;width:100%;
+      position:relative;animation:modalIn 0.3s ease
+    }
+    @keyframes modalIn{from{opacity:0;transform:scale(.95) translateY(10px)}to{opacity:1;transform:scale(1) translateY(0)}}
+    .modal-close{
+      position:absolute;top:12px;right:16px;
+      background:none;border:none;font-size:1.6rem;
+      color:var(--text-muted);cursor:pointer;transition:var(--transition);
+      line-height:1
+    }
+    .modal-close:hover{color:var(--text)}
+    .modal h2{font-size:1.5rem;font-weight:800;margin-bottom:4px}
+    .modal-sub{color:var(--text-light);font-size:.9rem;margin-bottom:20px}
+    .modal-tabs{margin-bottom:16px}
+    .modal-footer-text{text-align:center;font-size:.85rem;color:var(--text-muted);margin-top:16px}
+    .modal-footer-text a{color:var(--primary);font-weight:600}
+    .modal-confirm{text-align:center}
+    .confirm-icon{margin-bottom:12px}
+    .confirm-details{margin:20px 0;padding:16px;background:var(--bg);border-radius:var(--radius-sm);text-align:left}
+    .confirm-details p{padding:4px 0;font-size:.9rem}
+    .confirm-details strong{display:inline-block;width:80px}
+    .confirm-btns{display:flex;gap:12px;justify-content:center;margin-top:8px}
+
+    /* ===== AI CHAT ===== */
+    .chat-toggle{
+      position:fixed;bottom:24px;right:24px;z-index:900;
+      width:56px;height:56px;border-radius:50%;
+      background:#e91e63;color:#fff;border:none;
+      cursor:pointer;box-shadow:0 4px 20px rgba(233,30,99,.4);
+      display:flex;align-items:center;justify-content:center;
+      transition:var(--transition)
+    }
+    .chat-toggle:hover{transform:scale(1.1);background:#c2185b}
+    .chat-toggle-badge{
+      position:absolute;top:-2px;right:-2px;
+      width:20px;height:20px;border-radius:50%;
+      background:var(--success);color:#fff;
+      font-size:.7rem;font-weight:700;
+      display:flex;align-items:center;justify-content:center
+    }
+    .chat-panel{
+      position:fixed;bottom:90px;right:24px;z-index:900;
+      width:360px;height:520px;border-radius:var(--radius);
+      background:var(--card);box-shadow:var(--shadow-lg);
+      display:none;flex-direction:column;overflow:hidden;
+      animation:chatIn .25s ease
+    }
+    .chat-panel.open{display:flex}
+    @keyframes chatIn{from{opacity:0;transform:translateY(20px) scale(.95)}to{opacity:1;transform:translateY(0) scale(1)}}
+    .chat-header{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:16px 18px;background:#e91e63;color:#fff;
+      flex-shrink:0
+    }
+    .chat-header-info{display:flex;align-items:center;gap:10px}
+    .chat-avatar{
+      width:32px;height:32px;border-radius:50%;
+      background:rgba(255,255,255,.2);display:flex;
+      align-items:center;justify-content:center
+    }
+    .chat-header-info strong{font-size:.9rem;display:block}
+    .chat-status{font-size:.75rem;opacity:.8}
+    .chat-close{
+      background:none;border:none;color:#fff;font-size:1.4rem;
+      cursor:pointer;padding:0 4px;opacity:.8;transition:var(--transition)
+    }
+    .chat-close:hover{opacity:1}
+    .chat-messages{
+      flex:1;overflow-y:auto;padding:16px 18px;
+      background:var(--bg)
+    }
+    .chat-messages::-webkit-scrollbar{width:4px}
+    .chat-messages::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+    .msg{margin-bottom:12px;display:flex}
+    .msg-ai{justify-content:flex-start}
+    .msg-user{justify-content:flex-end}
+    .msg-bubble{
+      max-width:85%;padding:10px 14px;border-radius:var(--radius-sm);
+      font-size:.88rem;line-height:1.55
+    }
+    .msg-ai .msg-bubble{
+      background:#fce4ec;border:1px solid #f8bbd0;
+      color:#880e4f;border-bottom-left-radius:2px
+    }
+    .msg-user .msg-bubble{
+      background:var(--primary);color:#fff;border-bottom-right-radius:2px
+    }
+    .msg-bubble p{margin-bottom:4px}
+    .msg-bubble p:last-child{margin-bottom:0}
+    .chat-options{display:flex;flex-direction:column;gap:6px;margin-top:8px}
+    .chat-opt{
+      padding:8px 14px;border:1.5px solid var(--border);
+      border-radius:var(--radius-sm);background:var(--card);
+      cursor:pointer;font-size:.85rem;font-weight:500;
+      color:var(--text);transition:var(--transition);text-align:left
+    }
+    .chat-opt:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-bg)}
+    .chat-input-area{
+      display:flex;align-items:center;gap:8px;
+      padding:12px 16px;border-top:1px solid var(--border-light);
+      background:var(--card);flex-shrink:0
+    }
+    .chat-input{
+      flex:1;padding:10px 14px;border:1.5px solid var(--border);
+      border-radius:20px;background:var(--bg);font-size:.85rem
+    }
+    .chat-input:focus{border-color:var(--primary)}
+    .chat-send{
+      width:36px;height:36px;border-radius:50%;
+      background:#e91e63;color:#fff;border:none;
+      cursor:pointer;display:flex;align-items:center;
+      justify-content:center;transition:var(--transition);flex-shrink:0
+    }
+    .chat-send:hover{background:#c2185b}
+
+    @media(max-width:480px){
+      .chat-panel{width:calc(100vw - 32px);height:460px;right:16px;bottom:84px}
+      .chat-toggle{bottom:16px;right:16px;width:50px;height:50px}
+    }
+
+    @media(max-width:1024px){
+      .services-grid,.testimonials-grid{grid-template-columns:repeat(2,1fr)}
+      .why-grid{grid-template-columns:repeat(2,1fr)}
+      .booking-layout{grid-template-columns:1fr}
+      .booking-summary{order:-1}
+      .summary-card{position:static}
+    }
+    @media(max-width:768px){
+      .hamburger{display:flex}
+      .nav-links{
+        position:fixed;top:68px;left:0;right:0;
+        background:rgba(255,255,255,.98);backdrop-filter:blur(16px);
+        flex-direction:column;padding:16px 24px 24px;
+        box-shadow:var(--shadow-lg);display:none
+      }
+      .nav-links.open{display:flex}
+      .hero-grid{grid-template-columns:1fr;text-align:center}
+      .hero-text h1{font-size:2.2rem}
+      .hero-btns{justify-content:center;flex-wrap:wrap}
+      .hero-stats{justify-content:center;gap:24px}
+      .hero-image{display:none}
+      .services-grid,.testimonials-grid,.why-grid{grid-template-columns:1fr}
+      .dashboard-stats{grid-template-columns:repeat(2,1fr)}
+      .contact-layout{grid-template-columns:1fr}
+      .footer-grid{grid-template-columns:1fr 1fr;gap:24px}
+      .page-header h1{font-size:1.7rem}
+      .cta-card{padding:36px 24px}
+      .cta-card h2{font-size:1.4rem}
+      .form-row{grid-template-columns:1fr}
+    }
+    @media(max-width:480px){
+      .hero-text h1{font-size:1.8rem}
+      .hero-stats{flex-direction:column;align-items:center;gap:12px}
+      .dashboard-stats{grid-template-columns:1fr 1fr}
+      .footer-grid{grid-template-columns:1fr}
+      .modal{padding:28px 20px}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== NAVBAR ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo" data-nav="home">
+        <svg class="logo-icon" viewBox="0 0 40 40" width="32" height="32">
+          <circle cx="20" cy="20" r="18" fill="var(--primary)" />
+          <path d="M20 8 L22 16 L30 16 L24 21 L26 30 L20 25 L14 30 L16 21 L10 16 L18 16 Z" fill="#fff" />
+        </svg>
+        DentCare
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#" data-nav="home" class="active">Home</a></li>
+        <li><a href="#" data-nav="book">Book Appointment</a></li>
+        <li><a href="#" data-nav="appointments">My Appointments</a></li>
+        <li><a href="#" data-nav="dashboard">Admin Dashboard</a></li>
+        <li><a href="#" data-nav="contact">Contact</a></li>
+        <li><a href="#" class="btn-login" id="loginBtn">Login</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ========== SECTION: HOME ========== -->
+  <section class="section active" id="section-home">
+    <div class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="badge">Welcome to DentCare</span>
+          <h1>Your smile is <span class="highlight">our priority</span></h1>
+          <p>Book your dental appointment in seconds — no phone calls, no waiting. Professional care for the whole family.</p>
+          <div class="hero-btns">
+            <a href="#" class="btn btn-primary" data-nav="book">Book an Appointment</a>
+            <a href="#" class="btn btn-outline" data-nav="contact">Contact Us</a>
+          </div>
+          <div class="hero-stats">
+            <div><strong>5,000+</strong><span>Happy Patients</span></div>
+            <div><strong>15+</strong><span>Years Experience</span></div>
+            <div><strong>4.9★</strong><span>Patient Rating</span></div>
+          </div>
+        </div>
+        <div class="hero-image">
+          <div class="hero-img-placeholder">
+            <svg viewBox="0 0 400 400" width="400" height="400">
+              <defs>
+                <linearGradient id="heroGrad" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#2563eb" />
+                  <stop offset="100%" stop-color="#0ea5e9" />
+                </linearGradient>
+              </defs>
+              <circle cx="200" cy="200" r="180" fill="url(#heroGrad)" opacity="0.1" />
+              <circle cx="200" cy="200" r="130" fill="url(#heroGrad)" opacity="0.15" />
+              <circle cx="200" cy="200" r="80" fill="url(#heroGrad)" opacity="0.2" />
+              <g transform="translate(200,180)">
+                <rect x="-50" y="-30" width="100" height="60" rx="30" fill="#fff" stroke="#2563eb" stroke-width="2" />
+                <rect x="-30" y="-10" width="60" height="20" rx="10" fill="#2563eb" opacity="0.3" />
+                <circle cx="-15" cy="0" r="4" fill="#2563eb" />
+                <circle cx="0" cy="0" r="4" fill="#2563eb" />
+                <circle cx="15" cy="0" r="4" fill="#2563eb" />
+              </g>
+              <g transform="translate(200,240)">
+                <text x="0" y="0" text-anchor="middle" fill="#2563eb" font-size="14" font-weight="600">Dental Care</text>
+              </g>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="services-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Our Services</h2>
+          <p>Comprehensive dental care tailored to your needs</p>
+        </div>
+        <div class="services-grid">
+          <div class="service-card">
+            <div class="service-icon tooth-icon">
+              <svg viewBox="0 0 48 48" width="40" height="40"><path d="M24 4C18 4 14 10 14 16C14 22 12 28 12 32C12 38 16 44 24 44C32 44 36 38 36 32C36 28 34 22 34 16C34 10 30 4 24 4Z" fill="none" stroke="var(--primary)" stroke-width="2.5"/><path d="M18 16C18 16 20 12 24 12C28 12 30 16 30 16" fill="none" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg>
+            </div>
+            <h3>Teeth Cleaning</h3>
+            <p>Professional cleaning to remove plaque and keep your smile bright.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 48 48" width="40" height="40"><rect x="16" y="8" width="16" height="32" rx="4" fill="none" stroke="var(--primary)" stroke-width="2.5"/><rect x="20" y="14" width="8" height="20" rx="2" fill="var(--primary)" opacity="0.3"/></svg></div>
+            <h3>Fillings</h3>
+            <p>Tooth-colored composite fillings that look natural and last long.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 48 48" width="40" height="40"><circle cx="24" cy="24" r="14" fill="none" stroke="var(--primary)" stroke-width="2.5"/><circle cx="24" cy="24" r="6" fill="none" stroke="var(--primary)" stroke-width="2.5"/><circle cx="24" cy="24" r="2" fill="var(--primary)"/><line x1="24" y1="6" x2="24" y2="10" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/><line x1="24" y1="38" x2="24" y2="42" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3>Whitening</h3>
+            <p>Professional teeth whitening for a brighter, more confident smile.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 48 48" width="40" height="40"><path d="M16 12C16 12 24 4 32 12C36 16 34 24 30 28C26 32 20 32 18 28C14 24 12 16 16 12Z" fill="none" stroke="var(--primary)" stroke-width="2.5"/><line x1="20" y1="20" x2="28" y2="20" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/><line x1="22" y1="16" x2="26" y2="16" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3>Extraction</h3>
+            <p>Gentle and pain-free tooth extraction when necessary.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 48 48" width="40" height="40"><path d="M24 8 C18 8 14 14 14 20 C14 28 18 32 24 40 C30 32 34 28 34 20 C34 14 30 8 24 8Z" fill="none" stroke="var(--primary)" stroke-width="2.5"/><path d="M20 20 L28 20 M24 16 L24 24" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3>Root Canal</h3>
+            <p>Advanced root canal therapy to save your natural tooth.</p>
+          </div>
+          <div class="service-card">
+            <div class="service-icon"><svg viewBox="0 0 48 48" width="40" height="40"><rect x="10" y="16" width="28" height="20" rx="4" fill="none" stroke="var(--primary)" stroke-width="2.5"/><circle cx="24" cy="26" r="4" fill="none" stroke="var(--primary)" stroke-width="2"/><line x1="16" y1="36" x2="14" y2="42" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/><line x1="32" y1="36" x2="34" y2="42" stroke="var(--primary)" stroke-width="2" stroke-linecap="round"/></svg></div>
+            <h3>Checkup</h3>
+            <p>Regular dental checkups to maintain optimal oral health.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="why-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Why Choose DentCare?</h2>
+          <p>We make dental care accessible, comfortable, and stress-free</p>
+        </div>
+        <div class="why-grid">
+          <div class="why-item">
+            <div class="why-number">01</div>
+            <h3>Instant Online Booking</h3>
+            <p>Book your appointment 24/7 from any device. No phone calls needed.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-number">02</div>
+            <h3>Gentle & Pain-Free</h3>
+            <p>Modern techniques and sedation options for a comfortable experience.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-number">03</div>
+            <h3>Smart Reminders</h3>
+            <p>Get email or SMS reminders so you never miss an appointment.</p>
+          </div>
+          <div class="why-item">
+            <div class="why-number">04</div>
+            <h3>Family-Friendly</h3>
+            <p>Care for patients of all ages in a warm, welcoming environment.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonials-section">
+      <div class="container">
+        <div class="section-header">
+          <h2>What Our Patients Say</h2>
+        </div>
+        <div class="testimonials-grid">
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"The online booking saved me so much time. The whole experience was smooth and professional."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">SK</div>
+              <div><strong>Sarah K.</strong><span>Cleaning & Checkup</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"I was nervous about my extraction, but the team was incredibly gentle. Highly recommend DentCare!"</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">MR</div>
+              <div><strong>Michael R.</strong><span>Tooth Extraction</span></div>
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="stars">★★★★★</div>
+            <p>"The reminder system is amazing. I haven't missed a single appointment since switching to DentCare."</p>
+            <div class="testimonial-author">
+              <div class="author-avatar">EL</div>
+              <div><strong>Emily L.</strong><span>Regular Patient</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <div class="container">
+        <div class="cta-card">
+          <h2>Ready for a healthier smile?</h2>
+          <p>Book your appointment today and experience dental care reimagined.</p>
+          <a href="#" class="btn btn-primary btn-lg" data-nav="book">Book Your Visit Now</a>
+        </div>
+      </div>
+    </section>
+  </section>
+
+  <!-- ========== SECTION: BOOK APPOINTMENT ========== -->
+  <section class="section" id="section-book">
+    <div class="container page-header">
+      <h1>Book an Appointment</h1>
+      <p>Choose your treatment, pick a date, and confirm — it's that simple.</p>
+    </div>
+    <div class="container booking-layout">
+      <div class="booking-form">
+        <div class="form-group">
+          <label for="treatment">Treatment Type</label>
+          <select id="treatment">
+            <option value="">Select a treatment...</option>
+            <option value="cleaning">Teeth Cleaning — $80</option>
+            <option value="filling">Filling — $150</option>
+            <option value="whitening">Whitening — $200</option>
+            <option value="extraction">Extraction — $180</option>
+            <option value="root-canal">Root Canal — $350</option>
+            <option value="checkup">Checkup — $60</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="doctor">Preferred Doctor</label>
+          <select id="doctor">
+            <option value="any">Any Available</option>
+            <option value="dr-smith">Dr. Sarah Smith</option>
+            <option value="dr-jones">Dr. Michael Jones</option>
+            <option value="dr-lee">Dr. Emily Lee</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="date-input">Select Date</label>
+          <input type="text" id="date-input" placeholder="Click to open calendar" readonly />
+          <div class="calendar-widget" id="calendarWidget">
+            <div class="calendar-header">
+              <button id="prevMonth" aria-label="Previous month">&#8249;</button>
+              <span id="calendarMonthYear"></span>
+              <button id="nextMonth" aria-label="Next month">&#8250;</button>
+            </div>
+            <div class="calendar-days" id="calendarDays"></div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Available Time Slots</label>
+          <div class="time-slots" id="timeSlots">
+            <p class="hint">Please select a date first</p>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="notes">Notes (optional)</label>
+          <textarea id="notes" placeholder="Any special concerns or requests..." rows="3"></textarea>
+        </div>
+        <button class="btn btn-primary btn-full" id="bookConfirmBtn">Confirm Booking</button>
+      </div>
+      <div class="booking-summary" id="bookingSummary">
+        <div class="summary-card">
+          <h3>Booking Summary</h3>
+          <div class="summary-empty">
+            <p>Select your treatment and date to see the summary here.</p>
+          </div>
+          <div class="summary-details" id="summaryDetails" style="display:none;">
+            <div class="summary-row"><span>Treatment</span><span id="summaryTreatment">—</span></div>
+            <div class="summary-row"><span>Doctor</span><span id="summaryDoctor">—</span></div>
+            <div class="summary-row"><span>Date</span><span id="summaryDate">—</span></div>
+            <div class="summary-row"><span>Time</span><span id="summaryTime">—</span></div>
+            <div class="summary-row summary-total"><span>Total</span><span id="summaryPrice">—</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION: MY APPOINTMENTS ========== -->
+  <section class="section" id="section-appointments">
+    <div class="container page-header">
+      <h1>My Appointments</h1>
+      <p>View and manage your upcoming and past visits.</p>
+    </div>
+    <div class="container">
+      <div class="appt-tabs">
+        <button class="tab-btn active" data-tab="upcoming">Upcoming</button>
+        <button class="tab-btn" data-tab="past">Past</button>
+      </div>
+      <div class="appointments-list" id="appointmentsList">
+        <div class="empty-state">
+          <svg viewBox="0 0 80 80" width="64" height="64"><circle cx="40" cy="40" r="30" fill="none" stroke="#cbd5e1" stroke-width="3"/><path d="M28 40 L36 48 L52 32" fill="none" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <h3>No appointments yet</h3>
+          <p>Book your first appointment to get started.</p>
+          <a href="#" class="btn btn-primary" data-nav="book">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION: ADMIN DASHBOARD ========== -->
+  <section class="section" id="section-dashboard">
+    <div class="container page-header">
+      <h1>Admin Dashboard</h1>
+      <p>Manage appointments, time slots, and patient records.</p>
+    </div>
+    <div class="container">
+      <div class="dashboard-stats">
+        <div class="stat-card"><span class="stat-number" id="statToday">0</span><span class="stat-label">Today</span></div>
+        <div class="stat-card"><span class="stat-number" id="statWeek">0</span><span class="stat-label">This Week</span></div>
+        <div class="stat-card"><span class="stat-number" id="statTotal">0</span><span class="stat-label">Total</span></div>
+        <div class="stat-card"><span class="stat-number" id="statPatients">0</span><span class="stat-label">Patients</span></div>
+      </div>
+      <div class="dashboard-tabs">
+        <button class="tab-btn active" data-dtab="appts">Appointments</button>
+        <button class="tab-btn" data-dtab="slots">Manage Slots</button>
+        <button class="tab-btn" data-dtab="patients">Patients</button>
+      </div>
+      <div id="dashAppts" class="dash-panel active">
+        <div class="dash-list" id="dashAppointmentsList">
+          <div class="empty-state"><p>No appointments scheduled.</p></div>
+        </div>
+      </div>
+      <div id="dashSlots" class="dash-panel">
+        <div class="slots-control">
+          <h3>Block / Unblock Time Slots</h3>
+          <div class="slots-grid" id="slotsGrid">
+            <p class="hint">Select a date to manage slots.</p>
+          </div>
+        </div>
+      </div>
+      <div id="dashPatients" class="dash-panel">
+        <div class="patients-list" id="patientsList">
+          <div class="empty-state"><p>No patient records yet.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SECTION: CONTACT ========== -->
+  <section class="section" id="section-contact">
+    <div class="container page-header">
+      <h1>Contact Us</h1>
+      <p>We'd love to hear from you. Get in touch with our team.</p>
+    </div>
+    <div class="container contact-layout">
+      <div class="contact-info">
+        <div class="contact-card">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" fill="none" stroke="var(--primary)" stroke-width="2"/><circle cx="12" cy="10" r="3" fill="none" stroke="var(--primary)" stroke-width="2"/></svg></div>
+          <div><h3>Address</h3><p>123 Wellness Street<br />New York, NY 10001</p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" fill="none" stroke="var(--primary)" stroke-width="2"/></svg></div>
+          <div><h3>Phone</h3><p>(555) 123-4567</p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" width="24" height="24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" fill="none" stroke="var(--primary)" stroke-width="2"/><polyline points="22,6 12,13 2,6" fill="none" stroke="var(--primary)" stroke-width="2"/></svg></div>
+          <div><h3>Email</h3><p>hello@dentcare.com</p></div>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><svg viewBox="0 0 24 24" width="24" height="24"><circle cx="12" cy="12" r="10" fill="none" stroke="var(--primary)" stroke-width="2"/><polyline points="12 6 12 12 16 14" fill="none" stroke="var(--primary)" stroke-width="2"/></svg></div>
+          <div><h3>Hours</h3><p>Mon–Fri: 8 AM – 6 PM<br />Sat: 9 AM – 2 PM</p></div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <h3>Send Us a Message</h3>
+        <form id="contactForm">
+          <div class="form-row">
+            <div class="form-group"><input type="text" placeholder="Your Name" required /></div>
+            <div class="form-group"><input type="email" placeholder="Your Email" required /></div>
+          </div>
+          <div class="form-group"><input type="text" placeholder="Subject" /></div>
+          <div class="form-group"><textarea rows="5" placeholder="Your Message..." required></textarea></div>
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="logo"><svg class="logo-icon" viewBox="0 0 40 40" width="28" height="28"><circle cx="20" cy="20" r="18" fill="var(--primary)"/><path d="M20 8 L22 16 L30 16 L24 21 L26 30 L20 25 L14 30 L16 21 L10 16 L18 16 Z" fill="#fff"/></svg>DentCare</div>
+        <p class="footer-tagline">Your smile is our priority — book your visit in seconds.</p>
+      </div>
+      <div><h4>Quick Links</h4><ul><li><a href="#" data-nav="home">Home</a></li><li><a href="#" data-nav="book">Book Appointment</a></li><li><a href="#" data-nav="appointments">My Appointments</a></li><li><a href="#" data-nav="contact">Contact</a></li></ul></div>
+      <div><h4>Services</h4><ul><li>Teeth Cleaning</li><li>Fillings</li><li>Whitening</li><li>Extractions</li><li>Root Canals</li></ul></div>
+      <div><h4>Contact</h4><ul><li>123 Wellness Street, NY</li><li>(555) 123-4567</li><li>hello@dentcare.com</li></ul></div>
+    </div>
+    <div class="container footer-bottom"><p>&copy; 2026 DentCare. All rights reserved.</p></div>
+  </footer>
+
+  <!-- ========== LOGIN MODAL (div not form) ========== -->
+  <div class="modal-overlay" id="loginModal">
+    <div class="modal">
+      <button class="modal-close" id="loginModalClose">&times;</button>
+      <h2>Welcome Back</h2>
+      <p class="modal-sub">Sign in to manage your appointments.</p>
+      <div class="modal-tabs">
+        <button class="mtab-btn active" data-mtab="patient">Patient</button>
+        <button class="mtab-btn" data-mtab="staff">Staff</button>
+      </div>
+      <div id="loginForm">
+        <div class="form-group"><input type="email" id="loginEmail" placeholder="Email Address" /></div>
+        <div class="form-group"><input type="password" id="loginPassword" placeholder="Password" /></div>
+        <button onclick="handleLogin()" class="btn btn-primary btn-full">Sign In</button>
+        <p class="modal-footer-text">Don't have an account? <a href="#" id="showSignup">Sign up</a></p>
+      </div>
+      <div id="signupForm" style="display:none;">
+        <div class="form-group"><input type="text" id="signupName" placeholder="Full Name" /></div>
+        <div class="form-group"><input type="email" id="signupEmail" placeholder="Email Address" /></div>
+        <div class="form-group"><input type="password" id="signupPassword" placeholder="Password" /></div>
+        <button onclick="handleSignup()" class="btn btn-primary btn-full">Create Account</button>
+        <p class="modal-footer-text">Already have an account? <a href="#" id="showLogin">Sign in</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CONFIRMATION MODAL ========== -->
+  <div class="modal-overlay" id="confirmModal">
+    <div class="modal modal-confirm">
+      <button class="modal-close" id="confirmModalClose">&times;</button>
+      <div class="confirm-icon">
+        <svg viewBox="0 0 60 60" width="60" height="60"><circle cx="30" cy="30" r="26" fill="var(--primary)" opacity="0.15"/><path d="M20 30 L27 37 L40 23" fill="none" stroke="var(--primary)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <h2>Appointment Confirmed!</h2>
+      <p>We've sent a confirmation to your email. A reminder will be sent 24 hours before your visit.</p>
+      <div class="confirm-details" id="confirmDetails"></div>
+      <div class="confirm-btns">
+        <a href="#" class="btn btn-primary" data-nav="appointments">View My Appointments</a>
+        <a href="#" class="btn btn-outline" id="confirmCloseBtn">Close</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== AI CHAT ASSISTANT ========== -->
+  <button class="chat-toggle" id="chatToggle" aria-label="Open chat assistant">
+    <svg viewBox="0 0 24 24" width="24" height="24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <span class="chat-toggle-badge">?</span>
+  </button>
+  <div class="chat-panel" id="chatPanel">
+    <div class="chat-header">
+      <div class="chat-header-info">
+        <div class="chat-avatar">
+          <svg viewBox="0 0 24 24" width="18" height="18"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+        </div>
+        <div><strong>DentCare AI</strong><span class="chat-status">Online</span></div>
+      </div>
+      <button class="chat-close" id="chatClose">&times;</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="msg msg-ai">
+        <div class="msg-bubble">
+          <p>Hi! I'm your dental assistant. Tell me what's bothering you and I'll recommend the right treatment.</p>
+        </div>
+      </div>
+      <div class="msg msg-ai">
+        <div class="msg-bubble">
+          <p>What brings you here today?</p>
+          <div class="chat-options" data-step="symptom">
+            <button class="chat-opt" data-value="pain">Tooth pain or sensitivity</button>
+            <button class="chat-opt" data-value="stains">Yellow or stained teeth</button>
+            <button class="chat-opt" data-value="broken">Missing, chipped, or broken tooth</button>
+            <button class="chat-opt" data-value="gums">Bleeding or swollen gums</button>
+            <button class="chat-opt" data-value="breath">Bad breath</button>
+            <button class="chat-opt" data-value="checkup">Just a regular checkup</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chat-input-area">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Type a message..." disabled />
+      <button class="chat-send" id="chatSend" disabled>
+        <svg viewBox="0 0 24 24" width="18" height="18"><line x1="22" y1="2" x2="11" y2="13" fill="none" stroke="currentColor" stroke-width="2"/><polygon points="22 2 15 22 11 13 2 9 22 2" fill="none" stroke="currentColor" stroke-width="2"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // ===== HARDCODED USERS =====
+    var USERS = [
+      { email: "patient@test.com", password: "1234", role: "patient" },
+      { email: "admin@test.com", password: "admin", role: "staff" }
+    ];
+
+    // ===== DATA LAYER (localStorage) =====
+    var DATA_KEY = 'dentcare_data';
+    var DEFAULT_DATA = { appointments: [], patients: [], blockedSlots: {}, nextId: 1 };
+
+    function loadData() {
+      try {
+        var raw = localStorage.getItem(DATA_KEY);
+        if (raw) {
+          var parsed = JSON.parse(raw);
+          if (!parsed.blockedSlots) parsed.blockedSlots = {};
+          return parsed;
+        }
+      } catch (e) {}
+      return JSON.parse(JSON.stringify(DEFAULT_DATA));
+    }
+
+    function saveData(data) {
+      localStorage.setItem(DATA_KEY, JSON.stringify(data));
+    }
+
+    var db = loadData();
+
+    // ===== HELPERS =====
+    function fmtDate(date) {
+      var d = new Date(date);
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      return months[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear();
+    }
+
+    function fmtTime(hour) {
+      var ampm = hour >= 12 ? 'PM' : 'AM';
+      var h = hour > 12 ? hour - 12 : (hour === 0 ? 12 : hour);
+      return h + ':00 ' + ampm;
+    }
+
+    function getWeekId(dateStr) {
+      var d = new Date(dateStr);
+      var start = new Date(d.getFullYear(), 0, 1);
+      var diff = (d - start + (start.getTimezoneOffset() - d.getTimezoneOffset()) * 60000) / 86400000;
+      var week = Math.ceil((diff + start.getDay() + 1) / 7);
+      return d.getFullYear() + '-W' + String(week).padStart(2, '0');
+    }
+
+    function getDateStr(date) {
+      var y = date.getFullYear();
+      var m = String(date.getMonth() + 1).padStart(2, '0');
+      var d = String(date.getDate()).padStart(2, '0');
+      return y + '-' + m + '-' + d;
+    }
+
+    var $ = function (sel, ctx) { return (ctx || document).querySelector(sel); };
+    var $$ = function (sel, ctx) { return Array.from((ctx || document).querySelectorAll(sel)); };
+
+    // ===== DOM REFS =====
+    var sections = {
+      home: $('#section-home'),
+      book: $('#section-book'),
+      appointments: $('#section-appointments'),
+      dashboard: $('#section-dashboard'),
+      contact: $('#section-contact')
+    };
+    var navLinks = $$('.nav-links a[data-nav]');
+    var hamburger = $('#hamburger');
+    var navUl = $('#navLinks');
+    var loginBtn = $('#loginBtn');
+    var loginModal = $('#loginModal');
+    var loginModalClose = $('#loginModalClose');
+    var loginFormDiv = $('#loginForm');
+    var signupFormDiv = $('#signupForm');
+    var showSignup = $('#showSignup');
+    var showLogin = $('#showLogin');
+    var confirmModal = $('#confirmModal');
+    var confirmModalClose = $('#confirmModalClose');
+    var confirmCloseBtn = $('#confirmCloseBtn');
+    var confirmDetails = $('#confirmDetails');
+    var bookConfirmBtn = $('#bookConfirmBtn');
+    var dateInput = $('#date-input');
+    var calendarWidget = $('#calendarWidget');
+    var prevMonthBtn = $('#prevMonth');
+    var nextMonthBtn = $('#nextMonth');
+    var calendarMonthYear = $('#calendarMonthYear');
+    var calendarDays = $('#calendarDays');
+    var timeSlots = $('#timeSlots');
+    var treatment = $('#treatment');
+    var doctor = $('#doctor');
+    var notes = $('#notes');
+    var summaryTreatment = $('#summaryTreatment');
+    var summaryDoctor = $('#summaryDoctor');
+    var summaryDate = $('#summaryDate');
+    var summaryTime = $('#summaryTime');
+    var summaryPrice = $('#summaryPrice');
+    var summaryDetails = $('#summaryDetails');
+    var appointmentsList = $('#appointmentsList');
+    var apptTabBtns = $$('.appt-tabs .tab-btn');
+    var statToday = $('#statToday');
+    var statWeek = $('#statWeek');
+    var statTotal = $('#statTotal');
+    var statPatients = $('#statPatients');
+    var dashAppts = $('#dashAppointmentsList');
+    var dashTabBtns = $$('.dashboard-tabs .tab-btn');
+    var slotsGrid = $('#slotsGrid');
+    var patientsList = $('#patientsList');
+    var contactForm = $('#contactForm');
+
+    // ===== STATE =====
+    var currentView = 'home';
+    var currentMonth = new Date().getMonth();
+    var currentYear = new Date().getFullYear();
+    var selectedDate = null;
+    var selectedSlot = null;
+    var loggedIn = false;
+    var currentPatientTab = 'upcoming';
+
+    // ===== FAKE AUTH =====
+    function handleLogin() {
+      var email = $('#loginEmail').value.trim();
+      var pass = $('#loginPassword').value.trim();
+      if (!email || !pass) { alert('Please enter email and password.'); return; }
+      var user = USERS.find(function (u) { return u.email === email && u.password === pass; });
+      if (!user) { alert('Invalid credentials. Try patient@test.com / 1234 or admin@test.com / admin'); return; }
+      loggedIn = true;
+      loginBtn.textContent = 'My Account';
+      closeModal('login');
+      navigate(user.role === 'staff' ? 'dashboard' : 'appointments');
+    }
+
+    function handleSignup() {
+      var name = $('#signupName').value.trim();
+      var email = $('#signupEmail').value.trim();
+      var pass = $('#signupPassword').value.trim();
+      if (!name || !email || !pass) { alert('Please fill all fields.'); return; }
+      if (USERS.find(function (u) { return u.email === email; })) { alert('Email already registered.'); return; }
+      USERS.push({ email: email, password: pass, role: 'patient' });
+      if (!db.patients.find(function (p) { return p.name === name; })) {
+        db.patients.push({ name: name, email: email, visits: 0 });
+        saveData(db);
+      }
+      loggedIn = true;
+      loginBtn.textContent = 'My Account';
+      closeModal('login');
+      navigate('appointments');
+    }
+
+    // ===== NAVIGATION =====
+    function navigate(view) {
+      if (view === currentView) return;
+      currentView = view;
+      Object.keys(sections).forEach(function (key) {
+        sections[key].classList.toggle('active', key === view);
+      });
+      navLinks.forEach(function (a) {
+        var nav = a.getAttribute('data-nav');
+        a.classList.toggle('active', nav === view || (nav === 'home' && view === 'home'));
+      });
+      loginBtn.textContent = loggedIn ? 'My Account' : 'Login';
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      navUl.classList.remove('open');
+      if (view === 'appointments') renderAppointments();
+      if (view === 'dashboard') renderDashboard();
+      if (view === 'book') renderCalendar();
+    }
+
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest('[data-nav]');
+      if (link) {
+        e.preventDefault();
+        var nav = link.getAttribute('data-nav');
+        if (nav) navigate(nav);
+      }
+    });
+
+    hamburger.addEventListener('click', function () { navUl.classList.toggle('open'); });
+    $$('.nav-links a').forEach(function (a) { a.addEventListener('click', function () { navUl.classList.remove('open'); }); });
+
+    // ===== LOGIN MODAL =====
+    loginBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      if (loggedIn) {
+        loggedIn = false;
+        loginBtn.textContent = 'Login';
+        db = loadData();
+        renderAppointments();
+        renderDashboard();
+        return;
+      }
+      openModal('login');
+    });
+
+    function openModal(type) {
+      if (type === 'login') loginModal.classList.add('open');
+      if (type === 'confirm') confirmModal.classList.add('open');
+    }
+
+    function closeModal(type) {
+      if (type === 'login') loginModal.classList.remove('open');
+      if (type === 'confirm') confirmModal.classList.remove('open');
+    }
+
+    loginModalClose.addEventListener('click', function () { closeModal('login'); });
+    loginModal.addEventListener('click', function (e) { if (e.target === this) closeModal('login'); });
+
+    // Modal tabs
+    $$('.mtab-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        $$('.mtab-btn').forEach(function (b) { b.classList.remove('active'); });
+        this.classList.add('active');
+      });
+    });
+
+    showSignup.addEventListener('click', function (e) {
+      e.preventDefault();
+      loginFormDiv.style.display = 'none';
+      signupFormDiv.style.display = 'block';
+    });
+    showLogin.addEventListener('click', function (e) {
+      e.preventDefault();
+      loginFormDiv.style.display = 'block';
+      signupFormDiv.style.display = 'none';
+    });
+
+    // ===== CONFIRM MODAL =====
+    confirmModalClose.addEventListener('click', function () { closeModal('confirm'); });
+    confirmCloseBtn.addEventListener('click', function (e) { e.preventDefault(); closeModal('confirm'); });
+    confirmModal.addEventListener('click', function (e) { if (e.target === this) closeModal('confirm'); });
+
+    // ===== CALENDAR =====
+    function renderCalendar() {
+      var monthNames = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+      calendarMonthYear.textContent = monthNames[currentMonth] + ' ' + currentYear;
+      var firstDay = new Date(currentYear, currentMonth, 1).getDay();
+      var daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+      var daysInPrev = new Date(currentYear, currentMonth, 0).getDate();
+      var html = '<div class="calendar-weekdays">';
+      var weekdays = ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+      weekdays.forEach(function (d) { html += '<span>' + d + '</span>'; });
+      html += '</div>';
+      var today = new Date();
+      var todayStr = getDateStr(today);
+      var currentMonthStr = currentYear + '-' + String(currentMonth + 1).padStart(2, '0');
+      var dayCount = 1;
+      for (var i = firstDay; i > 0; i--) { html += '<span class="other-month">' + (daysInPrev - i + 1) + '</span>'; dayCount++; }
+      for (var d = 1; d <= daysInMonth; d++) {
+        var dateStr = currentMonthStr + '-' + String(d).padStart(2, '0');
+        var isToday = dateStr === todayStr;
+        var isSelected = selectedDate === dateStr;
+        var isPast = dateStr < todayStr;
+        var classes = [];
+        if (isToday) classes.push('today');
+        if (isSelected) classes.push('selected');
+        if (isPast) classes.push('disabled');
+        html += '<span data-date="' + dateStr + '" class="' + classes.join(' ') + '">' + d + '</span>';
+        dayCount++;
+      }
+      var remaining = 7 - (dayCount % 7 || 7);
+      for (var i = 1; i <= remaining; i++) { html += '<span class="other-month">' + i + '</span>'; }
+      calendarDays.innerHTML = html;
+      $$('.calendar-days span:not(.other-month):not(.disabled)').forEach(function (el) {
+        el.addEventListener('click', function () {
+          var date = this.getAttribute('data-date');
+          if (!date) return;
+          selectedDate = date;
+          selectedSlot = null;
+          $$('.calendar-days span').forEach(function (sp) { sp.classList.remove('selected'); });
+          this.classList.add('selected');
+          dateInput.value = fmtDate(date);
+          calendarWidget.classList.remove('open');
+          renderTimeSlots(date);
+          updateSummary();
+        });
+      });
+    }
+
+    function renderTimeSlots(dateStr) {
+      var slots = ['8','9','10','11','13','14','15','16','17'];
+      var blocked = db.blockedSlots[dateStr] || [];
+      var html = '';
+      slots.forEach(function (h) {
+        var isBlocked = blocked.indexOf(h) !== -1;
+        html += '<button class="slot-btn' + (isBlocked ? ' blocked' : '') + '" data-hour="' + h + '"' + (isBlocked ? ' disabled' : '') + '>' + fmtTime(parseInt(h)) + '</button>';
+      });
+      timeSlots.innerHTML = html;
+      $$('.slot-btn:not(.blocked)').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          $$('.slot-btn').forEach(function (b) { b.classList.remove('selected'); });
+          this.classList.add('selected');
+          selectedSlot = this.getAttribute('data-hour');
+          updateSummary();
+        });
+      });
+    }
+
+    dateInput.addEventListener('click', function () { calendarWidget.classList.toggle('open'); renderCalendar(); });
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.calendar-widget') && !e.target.closest('#date-input')) { calendarWidget.classList.remove('open'); }
+    });
+    prevMonthBtn.addEventListener('click', function () { currentMonth--; if (currentMonth < 0) { currentMonth = 11; currentYear--; } renderCalendar(); });
+    nextMonthBtn.addEventListener('click', function () { currentMonth++; if (currentMonth > 11) { currentMonth = 0; currentYear++; } renderCalendar(); });
+
+    // ===== BOOKING SUMMARY =====
+    var TREATMENT_NAMES_DISPLAY = {
+      'cleaning': 'Teeth Cleaning \u2014 $80', 'filling': 'Filling \u2014 $150',
+      'whitening': 'Whitening \u2014 $200', 'extraction': 'Extraction \u2014 $180',
+      'root-canal': 'Root Canal \u2014 $350', 'checkup': 'Checkup \u2014 $60'
+    };
+    var DOCTOR_NAMES = {
+      'any': 'Any Available', 'dr-smith': 'Dr. Sarah Smith',
+      'dr-jones': 'Dr. Michael Jones', 'dr-lee': 'Dr. Emily Lee'
+    };
+    var PRICES = { 'cleaning': 80, 'filling': 150, 'whitening': 200, 'extraction': 180, 'root-canal': 350, 'checkup': 60 };
+
+    function updateSummary() {
+      var t = treatment.value;
+      var d = doctor.value;
+      var date = selectedDate;
+      var slot = selectedSlot;
+      if (!t || !date || !slot) { summaryDetails.style.display = 'none'; return; }
+      summaryDetails.style.display = 'block';
+      summaryTreatment.textContent = TREATMENT_NAMES_DISPLAY[t] || t;
+      summaryDoctor.textContent = DOCTOR_NAMES[d] || d;
+      summaryDate.textContent = fmtDate(date);
+      summaryTime.textContent = fmtTime(parseInt(slot));
+      summaryPrice.textContent = '$' + PRICES[t];
+    }
+
+    treatment.addEventListener('change', updateSummary);
+    doctor.addEventListener('change', updateSummary);
+
+    // ===== CONFIRM BOOKING =====
+    bookConfirmBtn.addEventListener('click', function () {
+      var t = treatment.value;
+      var d = doctor.value;
+      var date = selectedDate;
+      var slot = selectedSlot;
+      var note = notes.value;
+      if (!t) { alert('Please select a treatment type.'); return; }
+      if (!date) { alert('Please select a date.'); return; }
+      if (!slot) { alert('Please select a time slot.'); return; }
+
+      var TREATMENT_NAMES = {
+        'cleaning': 'Teeth Cleaning', 'filling': 'Filling', 'whitening': 'Whitening',
+        'extraction': 'Extraction', 'root-canal': 'Root Canal', 'checkup': 'Checkup'
+      };
+
+      var appointment = {
+        id: db.nextId++,
+        treatment: TREATMENT_NAMES[t] || t,
+        doctor: DOCTOR_NAMES[d] || d,
+        date: date,
+        time: slot,
+        timeFormatted: fmtTime(parseInt(slot)),
+        notes: note || '',
+        price: PRICES[t] || 0,
+        status: 'confirmed',
+        createdAt: new Date().toISOString()
+      };
+      db.appointments.push(appointment);
+      saveData(db);
+
+      var detailHtml = '';
+      detailHtml += '<p><strong>Treatment:</strong> ' + appointment.treatment + '</p>';
+      detailHtml += '<p><strong>Doctor:</strong> ' + appointment.doctor + '</p>';
+      detailHtml += '<p><strong>Date:</strong> ' + fmtDate(date) + '</p>';
+      detailHtml += '<p><strong>Time:</strong> ' + appointment.timeFormatted + '</p>';
+      detailHtml += '<p><strong>Price:</strong> $' + appointment.price + '</p>';
+      confirmDetails.innerHTML = detailHtml;
+      openModal('confirm');
+
+      treatment.value = '';
+      doctor.value = 'any';
+      dateInput.value = '';
+      notes.value = '';
+      selectedDate = null;
+      selectedSlot = null;
+      summaryDetails.style.display = 'none';
+      timeSlots.innerHTML = '<p class="hint">Please select a date first</p>';
+    });
+
+    // ===== MY APPOINTMENTS =====
+    function renderAppointments() {
+      var tab = currentPatientTab;
+      var list = db.appointments;
+      if (tab === 'upcoming') { list = list.filter(function (a) { return a.status === 'confirmed'; }); }
+      else { list = list.filter(function (a) { return a.status !== 'confirmed'; }); }
+      if (db.appointments.length === 0) {
+        appointmentsList.innerHTML =
+          '<div class="empty-state"><svg viewBox="0 0 80 80" width="64" height="64"><circle cx="40" cy="40" r="30" fill="none" stroke="#cbd5e1" stroke-width="3"/><path d="M28 40 L36 48 L52 32" fill="none" stroke="#cbd5e1" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg><h3>No appointments yet</h3><p>Book your first appointment to get started.</p><a href="#" class="btn btn-primary" data-nav="book">Book Now</a></div>';
+        return;
+      }
+      if (list.length === 0) {
+        appointmentsList.innerHTML = '<div class="empty-state"><h3>No ' + tab + ' appointments</h3><p>' + (tab === 'upcoming' ? 'You have no upcoming appointments.' : 'No past appointments found.') + '</p></div>';
+        return;
+      }
+      var html = '';
+      list.forEach(function (a) {
+        var statusClass = a.status === 'confirmed' ? 'confirmed' : (a.status === 'completed' ? 'completed' : 'cancelled');
+        html += '<div class="appt-card"><div class="appt-info"><h4>' + a.treatment + '</h4><p>' + fmtDate(a.date) + ' at ' + a.timeFormatted + ' \u00B7 ' + a.doctor + '</p></div><span class="appt-status ' + statusClass + '">' + a.status.charAt(0).toUpperCase() + a.status.slice(1) + '</span></div>';
+      });
+      appointmentsList.innerHTML = html;
+    }
+
+    apptTabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        apptTabBtns.forEach(function (b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        currentPatientTab = this.getAttribute('data-tab');
+        renderAppointments();
+      });
+    });
+
+    // ===== ADMIN DASHBOARD =====
+    function renderDashboard() {
+      var today = getDateStr(new Date());
+      var allAppts = db.appointments;
+      var todayAppts = allAppts.filter(function (a) { return a.date === today; });
+      var weekId = getWeekId(today);
+      var weekAppts = allAppts.filter(function (a) { return getWeekId(a.date) === weekId; });
+      var patients = db.patients.length || new Set(allAppts.map(function (a) { return a.doctor; })).size || 0;
+      statToday.textContent = todayAppts.length;
+      statWeek.textContent = weekAppts.length;
+      statTotal.textContent = allAppts.length;
+      statPatients.textContent = patients || Math.max(1, new Set(allAppts.map(function (a) { return a.doctor + a.date; })).size);
+      renderDashAppointments();
+      renderSlotsManagement();
+      renderPatientsList();
+    }
+
+    function renderDashAppointments() {
+      var list = db.appointments;
+      if (list.length === 0) { dashAppts.innerHTML = '<div class="empty-state"><p>No appointments scheduled.</p></div>'; return; }
+      var html = '';
+      var sorted = list.slice().sort(function (a, b) { return a.date.localeCompare(b.date) || parseInt(a.time) - parseInt(b.time); });
+      sorted.forEach(function (a) {
+        var statusClass = a.status === 'confirmed' ? 'confirmed' : (a.status === 'completed' ? 'completed' : 'cancelled');
+        html += '<div class="appt-card"><div class="appt-info"><h4>' + a.treatment + '</h4><p>' + fmtDate(a.date) + ' at ' + a.timeFormatted + ' \u00B7 ' + a.doctor + '</p></div><div style="display:flex;gap:6px;align-items:center;"><span class="appt-status ' + statusClass + '">' + a.status.charAt(0).toUpperCase() + a.status.slice(1) + '</span><select class="status-change" data-id="' + a.id + '" style="padding:4px 6px;border:1px solid var(--border);border-radius:4px;font-size:.8rem;"><option value="confirmed"' + (a.status === 'confirmed' ? ' selected' : '') + '>Confirm</option><option value="completed"' + (a.status === 'completed' ? ' selected' : '') + '>Complete</option><option value="cancelled"' + (a.status === 'cancelled' ? ' selected' : '') + '>Cancel</option></select></div></div>';
+      });
+      dashAppts.innerHTML = html;
+      $$('.status-change').forEach(function (sel) {
+        sel.addEventListener('change', function () {
+          var id = parseInt(this.getAttribute('data-id'));
+          var appt = db.appointments.find(function (a) { return a.id === id; });
+          if (appt) { appt.status = this.value; saveData(db); renderDashboard(); }
+        });
+      });
+    }
+
+    function renderSlotsManagement() {
+      var today = new Date();
+      var html = '<p style="margin-bottom:12px;font-size:.9rem;color:var(--text-light);">Toggle slots to block/unblock them for future dates.</p>';
+      for (var i = 0; i < 7; i++) {
+        var d = new Date(today);
+        d.setDate(d.getDate() + i);
+        var dateStr = getDateStr(d);
+        var blocked = db.blockedSlots[dateStr] || [];
+        var slots = ['8','9','10','11','13','14','15','16','17'];
+        html += '<div style="margin-bottom:16px;"><strong style="font-size:.85rem;display:block;margin-bottom:6px;">' + fmtDate(dateStr) + '</strong><div class="slots-grid">';
+        slots.forEach(function (h) {
+          html += '<button class="slot-btn' + (blocked.indexOf(h) !== -1 ? ' blocked' : '') + '" data-date="' + dateStr + '" data-hour="' + h + '">' + fmtTime(parseInt(h)) + '</button>';
+        });
+        html += '</div></div>';
+      }
+      slotsGrid.innerHTML = html;
+      $$('#slotsGrid .slot-btn').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var date = this.getAttribute('data-date');
+          var hour = this.getAttribute('data-hour');
+          if (!db.blockedSlots[date]) db.blockedSlots[date] = [];
+          var idx = db.blockedSlots[date].indexOf(hour);
+          if (idx === -1) { db.blockedSlots[date].push(hour); } else { db.blockedSlots[date].splice(idx, 1); }
+          saveData(db);
+          renderSlotsManagement();
+        });
+      });
+    }
+
+    function renderPatientsList() {
+      var patientMap = {};
+      db.appointments.forEach(function (a) {
+        var key = a.doctor;
+        if (!patientMap[key]) { patientMap[key] = { name: key, count: 0, treatments: [] }; }
+        patientMap[key].count++;
+        if (patientMap[key].treatments.indexOf(a.treatment) === -1) { patientMap[key].treatments.push(a.treatment); }
+      });
+      db.patients.forEach(function (p) {
+        if (!patientMap[p.name]) { patientMap[p.name] = { name: p.name, count: p.visits || 0, treatments: [] }; }
+      });
+      var entries = Object.values(patientMap);
+      if (entries.length === 0) { patientsList.innerHTML = '<div class="empty-state"><p>No patient records yet.</p></div>'; return; }
+      var html = '';
+      entries.forEach(function (p) {
+        html += '<div class="patient-card"><div><strong>' + p.name + '</strong><span style="color:var(--text-light);font-size:.85rem;margin-left:8px;">' + p.count + ' visit' + (p.count !== 1 ? 's' : '') + '</span></div><div style="font-size:.8rem;color:var(--text-muted);">' + p.treatments.slice(0, 3).join(', ') + (p.treatments.length > 3 ? '...' : '') + '</div></div>';
+      });
+      patientsList.innerHTML = html;
+    }
+
+    dashTabBtns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        dashTabBtns.forEach(function (b) { b.classList.remove('active'); });
+        this.classList.add('active');
+        var target = this.getAttribute('data-dtab');
+        $$('.dash-panel').forEach(function (p) { p.classList.remove('active'); });
+        var panel = $('#dash' + target.charAt(0).toUpperCase() + target.slice(1));
+        if (panel) panel.classList.add('active');
+        if (target === 'slots') renderSlotsManagement();
+        if (target === 'patients') renderPatientsList();
+      });
+    });
+
+    // ===== CONTACT =====
+    contactForm.addEventListener('submit', function (e) { e.preventDefault(); alert('Thank you for your message! We will get back to you shortly.'); this.reset(); });
+
+    // ===== AI CHAT ASSISTANT =====
+    var chatToggle = $('#chatToggle');
+    var chatPanel = $('#chatPanel');
+    var chatClose = $('#chatClose');
+    var chatMessages = $('#chatMessages');
+    var chatInput = $('#chatInput');
+    var chatSend = $('#chatSend');
+
+    chatToggle.addEventListener('click', function () {
+      chatPanel.classList.toggle('open');
+      if (chatPanel.classList.contains('open')) {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+    });
+    chatClose.addEventListener('click', function () { chatPanel.classList.remove('open'); });
+
+    var CHAT_STATE = { step: 'symptom', symptom: null, subSymptom: null };
+
+    var RECOMMENDATIONS = {
+      pain: {
+        title: 'Root Canal or Filling',
+        treatment: 'root-canal',
+        msg: 'Tooth pain can mean decay or infection. I recommend a <b>Root Canal</b> or <b>Filling</b>. A Root Canal saves the tooth by removing the infected pulp, while a Filling repairs minor cavities.'
+      },
+      stains: {
+        title: 'Teeth Whitening',
+        treatment: 'whitening',
+        msg: 'For yellow or stained teeth, <b>Teeth Whitening</b> is the perfect solution. It can lighten your teeth several shades in a single session.'
+      },
+      broken: {
+        title: 'Extraction or Filling',
+        treatment: 'extraction',
+        msg: 'For a broken or chipped tooth, we offer <b>Fillings</b> for minor damage and <b>Extractions</b> if the tooth can\'t be saved. We\'ll examine and recommend the best option.'
+      },
+      gums: {
+        title: 'Deep Cleaning & Checkup',
+        treatment: 'cleaning',
+        msg: 'Bleeding gums may indicate gingivitis. A professional <b>Deep Cleaning</b> along with a <b>Checkup</b> will help restore your gum health.'
+      },
+      breath: {
+        title: 'Teeth Cleaning & Checkup',
+        treatment: 'cleaning',
+        msg: 'Persistent bad breath is often caused by plaque buildup. A thorough <b>Teeth Cleaning</b> and <b>Checkup</b> will leave your mouth fresh and healthy.'
+      },
+      checkup: {
+        title: 'Regular Checkup',
+        treatment: 'checkup',
+        msg: 'Great choice! Regular <b>Checkups</b> every 6 months help catch issues early. We\'ll clean your teeth and check for cavities or gum disease.'
+      }
+    };
+
+    function addMessage(text, type, htmlContent) {
+      var div = document.createElement('div');
+      div.className = 'msg msg-' + type;
+      var bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      if (htmlContent) { bubble.innerHTML = htmlContent; }
+      else { bubble.textContent = text; }
+      div.appendChild(bubble);
+      chatMessages.appendChild(div);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function addOptions(options, step) {
+      var container = document.createElement('div');
+      container.className = 'chat-options';
+      container.setAttribute('data-step', step);
+      options.forEach(function (opt) {
+        var btn = document.createElement('button');
+        btn.className = 'chat-opt';
+        btn.textContent = opt.label;
+        btn.setAttribute('data-value', opt.value);
+        btn.addEventListener('click', function () { handleChatChoice(step, opt.value); });
+        container.appendChild(btn);
+      });
+      var msgDiv = document.createElement('div');
+      msgDiv.className = 'msg msg-ai';
+      var bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      bubble.appendChild(container);
+      msgDiv.appendChild(bubble);
+      chatMessages.appendChild(msgDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    }
+
+    function handleChatChoice(step, value) {
+      // Remove all option buttons
+      $$('.chat-options').forEach(function (el) { el.innerHTML = ''; });
+
+      if (step === 'symptom') {
+        CHAT_STATE.symptom = value;
+        var rec = RECOMMENDATIONS[value];
+        addMessage(rec.msg, 'ai', rec.msg);
+
+        var bookHtml = '<div style="margin-top:10px;"><a href="#" class="btn btn-primary" style="font-size:.82rem;padding:8px 18px;" data-nav="book" onclick="selectTreatment(\'' + rec.treatment + '\'); closeChatAndBook();">Book ' + rec.title + '</a> <a href="#" class="btn btn-outline" style="font-size:.82rem;padding:8px 18px;" onclick="restartChat(); return false;">Ask again</a></div>';
+        addMessage('', 'ai', bookHtml);
+      }
+    }
+
+    window.selectTreatment = function (treatmentValue) {
+      var sel = $('#treatment');
+      if (sel) { sel.value = treatmentValue; sel.dispatchEvent(new Event('change')); }
+    };
+
+    window.closeChatAndBook = function () {
+      chatPanel.classList.remove('open');
+      navigate('book');
+    };
+
+    window.restartChat = function () {
+      // Clear messages back to initial
+      chatMessages.innerHTML = '';
+      CHAT_STATE = { step: 'symptom', symptom: null, subSymptom: null };
+      addMessage('Hi! I\'m your dental assistant. Tell me what\'s bothering you and I\'ll recommend the right treatment.', 'ai');
+      addMessage('What brings you here today?', 'ai');
+      addOptions([
+        { label: 'Tooth pain or sensitivity', value: 'pain' },
+        { label: 'Yellow or stained teeth', value: 'stains' },
+        { label: 'Missing, chipped, or broken tooth', value: 'broken' },
+        { label: 'Bleeding or swollen gums', value: 'gums' },
+        { label: 'Bad breath', value: 'breath' },
+        { label: 'Just a regular checkup', value: 'checkup' }
+      ], 'symptom');
+    };
+
+    // Bind option clicks via delegation too
+    document.addEventListener('click', function (e) {
+      var opt = e.target.closest('.chat-opt');
+      if (opt) {
+        var container = opt.closest('.chat-options');
+        if (container) {
+          var step = container.getAttribute('data-step');
+          var value = opt.getAttribute('data-value');
+          handleChatChoice(step, value);
+        }
+      }
+    });
+
+    // ===== FREE-TEXT CHAT =====
+    chatInput.disabled = false;
+    chatSend.disabled = false;
+
+    var CHAT_REPLIES = [
+      { keywords: ['cost','price','price','dollar','expensive','cheap','fee','charge'], reply: 'Our prices range from <b>$60</b> (Checkup) to <b>$350</b> (Root Canal). Most treatments are between $80–$200. We accept most insurance plans too!' },
+      { keywords: ['insurance','cover','plan','claim','copay'], reply: 'We accept most major dental insurance plans. Give us a call at (555) 123-4567 and we\'ll check your coverage in minutes.' },
+      { keywords: ['pain','hurt','sensitive','aching','sore','toothache'], reply: 'Tooth pain shouldn\'t be ignored. It could be a cavity, infection, or gum issue. I recommend booking a <b>Checkup</b> so our dentist can diagnose it properly.' },
+      { keywords: ['clean','cleaning','scale','polish','hygiene'], reply: 'Professional <b>Teeth Cleaning</b> removes plaque and tartar that brushing misses. It\'s $80 and takes about 30 minutes. I\'d recommend it every 6 months!' },
+      { keywords: ['white','whiten','stain','yellow','bright'], reply: 'Our <b>Teeth Whitening</b> treatment is $200 and can lighten your smile several shades in one session. It\'s completely safe and painless.' },
+      { keywords: ['extract','pull','remove','wisdom'], reply: 'If a tooth is too damaged to save, <b>Extraction</b> ($180) is a quick and gentle procedure. We use local anesthesia so you won\'t feel a thing.' },
+      { keywords: ['root','canal','rct','nerve','infection'], reply: 'A <b>Root Canal</b> ($350) saves an infected tooth by removing the damaged pulp. It\'s much less painful than people think — modern techniques make it very comfortable.' },
+      { keywords: ['filling','cavity','decay','drill','composite'], reply: 'For cavities, we use tooth-colored <b>Fillings</b> ($150) that match your natural teeth. They\'re durable, safe, and usually done in one visit.' },
+      { keywords: ['implant','bridge','crown','cap','denture'], reply: 'We offer restorative options like crowns and bridges. For a personalized recommendation, please <b>book a Checkup</b> and our dentist will evaluate your situation.' },
+      { keywords: ['hour','open','close','time','schedule','weekend','saturday'], reply: 'We\'re open <b>Mon–Fri 8 AM–6 PM</b> and <b>Saturdays 9 AM–2 PM</b>. You can book online 24/7 through our site!' },
+      { keywords: ['emergency','urgent','asap','now','today','immediately'], reply: 'If this is a dental emergency, please call us immediately at <b>(555) 123-4567</b>. For non-emergencies, you can book online right now.' },
+      { keywords: ['appointment','book','schedule','reschedule','cancel'], reply: 'You can <b>book an appointment</b> right here on our site! Go to the <b>Book Appointment</b> page, pick your treatment, choose a date and time, and confirm.' },
+      { keywords: ['child','kid','children','family','pediatric'], reply: 'We welcome patients of all ages! Our team is great with children and we offer a family-friendly environment. Book a <b>Checkup</b> for your little ones.' },
+      { keywords: ['hello','hi','hey','good morning','good evening','afternoon'], reply: 'Hello there! How can I help you with your dental care today? Feel free to ask me anything or choose an option above.' },
+      { keywords: ['thank','thanks','appreciate'], reply: 'You\'re very welcome! We\'re here to help you smile brighter. If you ever need anything, just ask.' }
+    ];
+
+    function sendMessage() {
+      var text = chatInput.value.trim();
+      if (!text) return;
+      addMessage(text, 'user');
+      chatInput.value = '';
+
+      // Find matching reply
+      var lower = text.toLowerCase();
+      var matched = null;
+      for (var i = 0; i < CHAT_REPLIES.length; i++) {
+        for (var j = 0; j < CHAT_REPLIES[i].keywords.length; j++) {
+          if (lower.indexOf(CHAT_REPLIES[i].keywords[j]) !== -1) {
+            matched = CHAT_REPLIES[i].reply;
+            break;
+          }
+        }
+        if (matched) break;
+      }
+
+      setTimeout(function () {
+        if (matched) {
+          addMessage(null, 'ai', matched);
+        } else {
+          addMessage(null, 'ai', 'That\'s a great question! For now, I recommend you <b>book a Checkup</b> so our dentist can examine you and give a personalized recommendation. Or pick one of the options above!');
+        }
+        // Re-add the suggestion options if no symptoms selected yet
+        if (!CHAT_STATE.symptom) {
+          addOptions([
+            { label: 'Tooth pain or sensitivity', value: 'pain' },
+            { label: 'Yellow or stained teeth', value: 'stains' },
+            { label: 'Missing, chipped, or broken tooth', value: 'broken' },
+            { label: 'Bleeding or swollen gums', value: 'gums' },
+            { label: 'Bad breath', value: 'breath' },
+            { label: 'Just a regular checkup', value: 'checkup' }
+          ], 'symptom');
+        }
+      }, 600);
+    }
+
+    chatSend.addEventListener('click', sendMessage);
+    chatInput.addEventListener('keydown', function (e) { if (e.key === 'Enter') sendMessage(); });
+
+    // ===== INIT =====
+    navigate('home');
+    renderCalendar();
+
+    if (db.appointments.length === 0 && db.patients.length === 0) {
+      var yesterday = new Date();
+      yesterday.setDate(yesterday.getDate() - 2);
+      var yesterdayStr = getDateStr(yesterday);
+      db.appointments.push({ id: db.nextId++, treatment: 'Teeth Cleaning', doctor: 'Dr. Sarah Smith', date: yesterdayStr, time: '10', timeFormatted: '10:00 AM', notes: '', price: 80, status: 'completed', createdAt: new Date().toISOString() });
+      db.patients.push({ name: 'Dr. Sarah Smith', email: 'sarah@dentcare.com', visits: 5 });
+      db.patients.push({ name: 'Dr. Michael Jones', email: 'michael@dentcare.com', visits: 3 });
+      saveData(db);
+    }
+
+    console.log('DentCare \u2014 Your smile is our priority. App loaded successfully.');
+  </script>
+</body>
+</html>
