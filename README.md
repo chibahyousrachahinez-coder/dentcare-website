@@ -7,7 +7,7 @@ A modern, responsive, and user-friendly dental clinic website designed to stream
 ## 🚀 Live Demo
 🔗 **[View Live Project]
 
-
+https://chibahyousrachahinez-coder.github.io/dentcare-website/
 ---
 
 ## ✨ Features
@@ -22,6 +22,10 @@ A modern, responsive, and user-friendly dental clinic website designed to stream
 * **HTML5:** Semantic structural layout.
 * **CSS3:** Custom styling, modern color palettes, and responsive grid/flexbox layouts.
 * **JavaScript:**
+
+
+
+https://github.com/user-attachments/assets/ef10f708-438d-4582-8305-37365f731366
 
 
 
